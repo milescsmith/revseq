@@ -11,13 +11,14 @@ repository = "https://github.com/milescsmith/revseq"
 Changelog = "https://github.com/milescsmith/revseq/releases"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 typer = "^0.6.1"
 icontract = "^2.6.2"
 rich = "^12.5.1"
 typeguard = "^2.13.3"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
+codecov = "^2.1.12"
 black = "^22.8.0"
 flake8 = "^5.0.4"
 hypothesis = "^6.54.5"
