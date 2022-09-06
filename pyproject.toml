@@ -17,7 +17,7 @@ icontract = "^2.6.2"
 rich = "^12.5.1"
 typeguard = "^2.13.3"
 
-[tool.poetry.group.dev.dependencies]
+[tool.poetry.dev-dependencies]
 codecov = "^2.1.12"
 black = "^22.8.0"
 flake8 = "^5.0.4"
