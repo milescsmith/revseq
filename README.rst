@@ -1,11 +1,11 @@
 revseq
 ==========
 
-A Python implementation of R's stats::smooth() Tukey's (running median) smoother
+A simple script to generate the (reverse) (complement) of a sequence
 
-|PyPI| |Status| |Python Version| |License|
+|Status| |Python Version| |License|
 
-|Read the Docs| |Tests| |Codecov|
+|Tests| |Codecov|
 
 |pre-commit| |Black|
 
