@@ -20,7 +20,7 @@ A simple script to generate the (reverse) (complement) of a sequence
 .. |License| image:: https://img.shields.io/pypi/l/revseq
    :target: https://opensource.org/licenses/GPL-3.0
    :alt: License
-.. |Tests| image:: https://github.com/milescsmith/revseq/workflows/python-package/badge.svg
+.. |Tests| image:: https://github.com/milescsmith/revseq/actions/workflows/python-package.yml/badge.svg
    :target: https://github.com/milescsmith/revseq/actions?workflow=python-package
    :alt: Tests
 .. |Codecov| image:: https://codecov.io/gh/milescsmith/revseq/branch/main/graph/badge.svg
