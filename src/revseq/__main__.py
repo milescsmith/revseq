@@ -1,6 +1,8 @@
 from collections import deque
 from importlib.metadata import version
+from typing import Annotated, Optional
 
+import better_exceptions
 import typer
 from icontract import require
 from rich import print
@@ -17,7 +19,6 @@ def version_callback(value: bool) -> None:
 app = typer.Typer(
     name="revseq",
     help="Generate reversed, reverse complement, and complement sequences",
-    add_completion=False,
 )
 
 
@@ -27,17 +28,28 @@ app = typer.Typer(
     error=lambda seq: ValueError("{} has non-standard DNA bases."),
 )
 def main(
-    seq: str = typer.Argument(...),
-    rev: bool = typer.Option(True, "-r", "--reverse", help="reverse sequence"),
-    comp: bool = typer.Option(True, "-c", "--complement", help="complement sequence"),
-    version: bool = typer.Option(
-        None,
-        "-v",
-        "--version",
-        callback=version_callback,
-        is_eager=True,
-        help="Prints the version.",
-    ),
+    seq: Annotated[
+        str,
+        typer.Argument()
+    ],
+    rev: Annotated[
+        bool,
+        typer.Option("-r", "--reverse", help="reverse sequence")
+    ] = True,
+    comp: Annotated[
+        bool,
+        typer.Option("-c", "--complement", help="complement sequence")
+    ] = True,
+    version: Annotated[
+        Optional[bool],
+        typer.Option(
+            "-v",
+            "--version",
+            callback=version_callback,
+            is_eager=True,
+            help="Prints the version.",
+        )
+    ] = None,
 ) -> None:
 
     print(revseq(seq, rev, comp))
@@ -95,4 +107,4 @@ def revseq(
 
 
 if __name__ == "__main__":
-    typer.run(main)  # pragma: no cover
+    app()  # pragma: no cover
