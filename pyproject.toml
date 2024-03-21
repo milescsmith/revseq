@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "revseq"
-version = "0.2.0"
+version = "0.3.0"
 description = "reverse and/or complement dna sequence"
 authors = [
     { name = "Miles Smith", email = "mileschristiansmith@gmail.com" }
@@ -49,7 +49,7 @@ dev-dependencies = [
     "mypy>=1.4.1",
     "coverage>=7.2.7",
     "pytest-cov>=4.1.0",
-    "ruff>=0.0.278",
+    "ruff>=0.3.3",
 ]
 
 [tool.rye.scripts]
