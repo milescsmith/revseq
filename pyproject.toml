@@ -4,19 +4,29 @@ build-backend = "hatchling.build"
 
 [project]
 name = "revseq"
-version = "0.3.0"
+version = "1.0.0"
 description = "reverse and/or complement dna sequence"
 authors = [
     { name = "Miles Smith", email = "mileschristiansmith@gmail.com" }
 ]
+license = "GPL-3.0"
 readme = "README.rst"
 requires-python = ">= 3.10"
 dependencies = [
-    "typer>=0.9.0",
-    "icontract>=2.6.2",
-    "rich>=13.4.2",
-    "typeguard>=4.0.0",
-    "better_exceptions>=0.3.3",
+    "typer>=0.11.0",
+    "icontract>=2.6.6",
+    "rich>=13.7.1",
+    "typeguard>=4.2.1",
+]
+classifiers = [
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Typing :: Typed",
 ]
 
 [project.urls]
@@ -41,15 +51,14 @@ fail_under = 100
 [tool.rye]
 managed = true
 dev-dependencies = [
-    "black>=23.7.0",
     "codecov>=2.1.13",
-    "hypothesis>=6.81.2",
-    "nox>=2023.4.22",
-    "pytest>=7.4.0",
-    "mypy>=1.4.1",
-    "coverage>=7.2.7",
+    "hypothesis>=6.99.13",
+    "nox>=2024.3.2",
+    "pytest>=8.1.1",
+    "mypy>=1.9.0",
+    "coverage>=7.4.4",
     "pytest-cov>=4.1.0",
-    "ruff>=0.3.3",
+    "ruff>=0.3.4",
 ]
 
 [tool.rye.scripts]
@@ -70,90 +79,3 @@ show_error_context = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/revseq"]
-
-[tool.black]
-line-length = 120
-target-version = ["py310"]
-skip-string-normalization = true
-
-[tool.ruff]
-target-version = "py310"
-line-length = 120
-select = [
-    "A",
-    "ARG",
-    "B",
-    "C",
-    "DTZ",
-    "E",
-    "EM",
-    "F",
-    "FBT",
-    "I",
-    "I001",
-    "ICN",
-    "ISC",
-    "N",
-    "PLC",
-    "PLE",
-    "PLR",
-    "PLW",
-    "Q",
-    "RUF",
-    "S",
-    "T",
-    "TID",
-    "UP",
-    "W",
-    "YTT",
-]
-ignore = [
-    "B027",
-    "C901",
-    "D100",
-    "D103",
-    "D205",
-    "D212",
-    "D415",
-    "E203",
-    "E501",
-    "FBT003",
-    "N802",
-    "N803",
-    "PLR0911",
-    "PLR0912",
-    "PLR0913",
-    "PLR0915",
-    "S105",
-    "S106",
-    "S107",
-]
-unfixable = [
-    "F401",
-    "UP007",
-]
-exclude = [
-    ".git",
-    ".hg",
-    "__pycache__",
-    "_bin/*",
-    "_build/*",
-    "_ig_fbcode_wheel/*",
-    "buck-out/*",
-    "third-party-buck/*",
-    "third-party2/*",
-    "dist",
-    ".venv",
-    ".nox",
-    ".mypy_cache",
-    ".pytype",
-    ".svn",
-    "__pypackages__",
-]
-src = ["src"]
-
-[tool.ruff.mccabe]
-max-complexity = 50
-
-[tool.ruff.flake8-tidy-imports]
-ban-relative-imports = "all"
