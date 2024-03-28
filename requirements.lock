@@ -5,17 +5,30 @@
 #   pre: false
 #   features: []
 #   all-features: false
+#   with-sources: false
 
 -e file:.
 asttokens==2.2.1
-better-exceptions==0.3.3
+    # via icontract
 click==8.1.6
-icontract==2.6.2
+    # via typer
+icontract==2.6.6
+    # via revseq
 markdown-it-py==3.0.0
+    # via rich
 mdurl==0.1.2
+    # via markdown-it-py
 pygments==2.15.1
-rich==13.4.2
+    # via rich
+rich==13.7.1
+    # via revseq
 six==1.16.0
-typeguard==4.0.0
-typer==0.9.0
-typing-extensions==4.7.1
+    # via asttokens
+typeguard==4.2.1
+    # via revseq
+typer==0.11.0
+    # via revseq
+typing-extensions==4.10.0
+    # via icontract
+    # via typeguard
+    # via typer

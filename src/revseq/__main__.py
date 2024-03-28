@@ -2,7 +2,6 @@ from collections import deque
 from importlib.metadata import version
 from typing import Annotated, Optional
 
-import better_exceptions
 import typer
 from icontract import require
 from rich import print
@@ -22,6 +21,7 @@ app = typer.Typer(
 )
 
 
+@app.callback(invoke_without_command=True)
 @app.command(no_args_is_help=True)
 @require(
     lambda seq: len(set(seq) - set("AGCTagct")) == 0,

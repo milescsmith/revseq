@@ -41,7 +41,7 @@ A simple script to generate the (reverse) (complement) of a sequence
 Requirements
 ------------
 
-* Python 3.8, 3.9, or 3.10
+* Python 3.10 or higher
 * typer
 * icontract
 * rich
@@ -51,11 +51,18 @@ Requirements
 Installation
 ------------
 
-You can install *revseq* via pip_ from GitHub_:
+You can install *revseq* via pip_:
+
+.. code:: console
+
+   $ pip install revseq
+
+or the latest development version from `Github <https://github.com/milescsmith/revseq/>`_:
 
 .. code:: console
 
    $ pip install git+https://github.com/milescsmith/revseq
+
 
 
 Usage
