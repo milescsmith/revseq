@@ -25,21 +25,12 @@ app = typer.Typer(
 @app.command(no_args_is_help=True)
 @require(
     lambda seq: len(set(seq) - set("AGCTagct")) == 0,
-    error=lambda seq: ValueError("{} has non-standard DNA bases."),
+    error=lambda seq: ValueError("{} has non-standard DNA bases."),  # noqa: ARG005
 )
 def main(
-    seq: Annotated[
-        str,
-        typer.Argument()
-    ],
-    rev: Annotated[
-        bool,
-        typer.Option("-r", "--reverse", help="reverse sequence")
-    ] = True,
-    comp: Annotated[
-        bool,
-        typer.Option("-c", "--complement", help="complement sequence")
-    ] = True,
+    seq: Annotated[str, typer.Argument()],
+    rev: Annotated[bool, typer.Option("-r", "--reverse", help="reverse sequence")] = True,
+    comp: Annotated[bool, typer.Option("-c", "--complement", help="complement sequence")] = True,
     version: Annotated[
         Optional[bool],
         typer.Option(
@@ -48,16 +39,15 @@ def main(
             callback=version_callback,
             is_eager=True,
             help="Prints the version.",
-        )
+        ),
     ] = None,
 ) -> None:
-
     print(revseq(seq, rev, comp))
 
 
 @require(
     lambda seq: len(seq) != 0,
-    error=lambda seq: ValueError("Nothing to do with an empty sequence"),
+    error=lambda seq: ValueError("Nothing to do with an empty sequence"),  # noqa: ARG005
 )
 @typechecked
 def revseq(

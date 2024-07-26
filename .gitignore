@@ -137,3 +137,7 @@ dmypy.json
 cython_debug/
 
 debug.py
+.pdm-build/
+.github/
+.vscode/
+.ruff_cache/

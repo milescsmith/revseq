@@ -1,7 +1,6 @@
 import hypothesis.strategies as st
 import pytest
 from hypothesis import example, given, settings
-
 from revseq import revseq
 
 
