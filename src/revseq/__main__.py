@@ -7,6 +7,9 @@ from icontract import require
 from rich import print
 from typeguard import typechecked
 
+import numpy as np
+from numba import vectorize, types
+
 
 def version_callback(value: bool) -> None:
     """Prints the version of the package."""
@@ -104,6 +107,49 @@ def revseq(
         seq_deque = deque([complement_dict[_] if _ in complement_dict else _ for _ in seq_deque])
 
     return "".join(seq_deque)
+
+
+# @require(
+#     lambda seq: len(seq) != 0,
+#     error=lambda seq: ValueError("Nothing to do with an empty sequence"),
+# )
+# @typechecked
+@vectorize(
+    [types.unicode_type(types.unicode_type)],
+    # "(n)->(n)"
+)
+def revcompvec(
+    seq: types.unicode_type,
+) -> types.unicode_type:
+    """Generate a (reverse) (complement) of DNA sequence
+
+    Parameters
+    ----------
+    seq : str, required
+        sequence for which to produce the reverse complement
+
+    Returns
+    -------
+    str
+        the (reverse) (complement) sequence
+    """
+
+    complement_dict = {
+        "A": "T",
+        "C": "G",
+        "G": "C",
+        "T": "A",
+        "a": "t",
+        "c": "g",
+        "g": "c",
+        "t": "a",
+    }
+
+    revcomp: types.unicode_type = "".join([complement_dict.get(_, _) for _ in list(seq[::-1])])
+
+    return revcomp
+
+
 
 
 if __name__ == "__main__":
