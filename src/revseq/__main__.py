@@ -11,7 +11,7 @@ from typeguard import typechecked
 def version_callback(value: bool) -> None:
     """Prints the version of the package."""
     if value:
-        rprint(f"[red]{__name__}[/red] version: {version(__name__)}")
+        rprint(f"[red]'revseq'[/red] version: {version('revseq')}")
         raise typer.Exit()
 
 

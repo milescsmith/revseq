@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "revseq"
-version = "1.3.0"
+version = "1.3.1"
 description = "reverse and/or complement dna sequence"
 authors = [
     { name = "Miles Smith", email = "mileschristiansmith@gmail.com" }
